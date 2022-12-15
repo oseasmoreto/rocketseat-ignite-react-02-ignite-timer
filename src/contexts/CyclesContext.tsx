@@ -71,8 +71,6 @@ export function CyclesContextProvider({ children }: CyclesContextProps) {
   }
 
   function interruptCycle() {
-    setActiveCycleId(null)
-
     setCycles((state) =>
       state.map((cycle) => {
         if (cycle.id === activeCycleId) {
@@ -82,6 +80,7 @@ export function CyclesContextProvider({ children }: CyclesContextProps) {
         }
       }),
     )
+    setActiveCycleId(null)
   }
 
   return (
